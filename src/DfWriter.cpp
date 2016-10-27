@@ -166,22 +166,22 @@ public:
 
     case HAVEN_DATETIME:
       switch(type_) {
+      case HAVEN_XPT:
       case HAVEN_SAS:   return "DATETIME";
-      case HAVEN_XPT:   return NULL;
       case HAVEN_SPSS:  return "DATETIME";
       case HAVEN_STATA: return "%tc";
       }
     case HAVEN_DATE:
       switch(type_) {
+      case HAVEN_XPT:
       case HAVEN_SAS:   return "DATE";
-      case HAVEN_XPT:   return NULL;
       case HAVEN_SPSS:  return "DATE";
       case HAVEN_STATA: return "%td";
       }
     case HAVEN_TIME:
       switch(type_) {
+      case HAVEN_XPT:
       case HAVEN_SAS:   return "TIME";
-      case HAVEN_XPT:   return NULL;
       case HAVEN_SPSS:  return "TIME";
       case HAVEN_STATA: return NULL; // Stata doesn't have a pure time type
       }
