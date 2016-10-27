@@ -1,5 +1,7 @@
 # haven 1.0.0.9000
 
+* Add support for SAS transport files
+
 * Update to latest readstat. Includes:
 
   * SAS: support Win baltic code page (#231)

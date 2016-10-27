@@ -7,7 +7,8 @@
 enum FileType {
   HAVEN_SPSS,
   HAVEN_STATA,
-  HAVEN_SAS
+  HAVEN_SAS,
+  HAVEN_XPT
 };
 
 enum VarType {
@@ -38,6 +39,7 @@ inline std::string formatAttribute(FileType type) {
   case HAVEN_STATA: return "format.stata";
   case HAVEN_SPSS:  return "format.spss";
   case HAVEN_SAS:   return "format.sas";
+  case HAVEN_XPT:   return "format.xpt";
   }
 
   return "";
@@ -61,6 +63,8 @@ inline VarType numType(FileType type, const char* var_format) {
     else if (format == "TIME")     return HAVEN_TIME;
     else if (format == "HHMM")     return HAVEN_TIME;
     else                           return HAVEN_DEFAULT;
+  case HAVEN_XPT:
+    return HAVEN_DEFAULT;
   case HAVEN_SPSS:
     // http://www-01.ibm.com/support/knowledgecenter/?lang=en#!/SSLVMB_20.0.0/com.ibm.spss.statistics.help/syn_date_and_time_date_time_formats.htm
     if      (hasPrefix(format, "DATETIME")) return HAVEN_DATETIME;
@@ -89,6 +93,7 @@ inline VarType numType(FileType type, const char* var_format) {
 inline int daysOffset(FileType type) {
   switch(type) {
   case HAVEN_SAS:   return 3653;   // 1960-01-01
+  case HAVEN_XPT:   return 0;
   case HAVEN_STATA: return 3653;
   case HAVEN_SPSS:  return 141428; // 1582-01-01
   }
