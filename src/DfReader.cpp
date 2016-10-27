@@ -279,8 +279,8 @@ public:
 
     if (obs_index >= nrowsAlloc_)
       resizeCols(nrowsAlloc_ * 2);
-    if (obs_index > nrows_)
-      nrows_ = obs_index;
+    if (obs_index >= nrows_)
+      nrows_ = obs_index + 1;
 
     switch(value.type) {
     case READSTAT_TYPE_STRING_REF:
