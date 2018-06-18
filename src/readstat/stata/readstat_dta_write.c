@@ -265,15 +265,17 @@ cleanup:
 }
 
 static readstat_error_t dta_validate_name(const char *name, size_t max_len) {
-    int j;
-    for (j=0; name[j]; j++) {
-        if (name[j] != '_' &&
-                !(name[j] >= 'a' && name[j] <= 'z') &&
-                !(name[j] >= 'A' && name[j] <= 'Z') &&
-                !(name[j] >= '0' && name[j] <= '9')) {
-            return READSTAT_ERROR_NAME_CONTAINS_ILLEGAL_CHARACTER;
-        }
-    }
+    /* int j;
+    *for (j=0; name[j]; j++) {
+    *    if (name[j] != '_' &&
+    *            !(name[j] >= 'a' && name[j] <= 'z') &&
+    *            !(name[j] >= 'A' && name[j] <= 'Z') &&
+    *            !(name[j] >= '0' && name[j] <= '9')) {
+    *        return READSTAT_ERROR_NAME_CONTAINS_ILLEGAL_CHARACTER;
+    *    }
+    *}
+    */
+    
     char first_char = name[0];
     if (first_char != '_' &&
             !(first_char >= 'a' && first_char <= 'z') &&
