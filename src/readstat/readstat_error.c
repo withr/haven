@@ -79,10 +79,10 @@ const char *readstat_error_message(readstat_error_t error_code) {
 
     if (error_code == READSTAT_ERROR_NAME_BEGINS_WITH_ILLEGAL_CHARACTER)
         return "A provided column name begins with an illegal character (must be a letter or underscore)";
-/*
- *   if (error_code == READSTAT_ERROR_NAME_CONTAINS_ILLEGAL_CHARACTER)
- *      return "A provided column name contains an illegal character (must be a letter, number, or underscore)";
- */
+
+    if (error_code == READSTAT_ERROR_NAME_CONTAINS_ILLEGAL_CHARACTER)
+       return "A provided column name contains an illegal character (must be a letter, number, or underscore)";
+ 
     if (error_code == READSTAT_ERROR_NAME_IS_RESERVED_WORD)
         return "A provided column name is a reserved word";
 
