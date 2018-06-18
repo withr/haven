@@ -303,7 +303,7 @@ validate_dta <- function(data) {
   stopifnot(is.data.frame(data))
 
   # Check variable names
-  bad_names <- !grepl("^[A-Za-z_]{1}[A-Za-z0-9_]{0,31}$", names(data))
+  bad_names <- !stringi::stri_detect_regex(names(data), "^[\\p{L}_]{1}[\\p{L}0-9_]{0,31}$")
   if (any(bad_names)) {
     stop(
       "The following variable names are not valid Stata variables: ",
