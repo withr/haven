@@ -276,12 +276,13 @@ static readstat_error_t dta_validate_name(const char *name, size_t max_len) {
     *}
     */
     
-    char first_char = name[0];
-    if (first_char != '_' &&
-            !(first_char >= 'a' && first_char <= 'z') &&
-            !(first_char >= 'A' && first_char <= 'Z')) {
-        return READSTAT_ERROR_NAME_BEGINS_WITH_ILLEGAL_CHARACTER;
-    }
+    *char first_char = name[0];
+    *if (first_char != '_' &&
+    *        !(first_char >= 'a' && first_char <= 'z') &&
+    *        !(first_char >= 'A' && first_char <= 'Z')) {
+    *    return READSTAT_ERROR_NAME_BEGINS_WITH_ILLEGAL_CHARACTER;
+    *}
+    */
     if (strcmp(name, "_all") == 0 || strcmp(name, "_b") == 0 ||
             strcmp(name, "byte") == 0 || strcmp(name, "_coef") == 0 ||
             strcmp(name, "_cons") == 0 || strcmp(name, "double") == 0 ||
